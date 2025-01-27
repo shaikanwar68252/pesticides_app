@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.pesticidessellingapp">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PesticidesSellingApp"
+        tools:targetApi="31">
+
+        <!-- All_Products Activity -->
+        <activity
+            android:name=".All_Products"
+            android:exported="true" />
+
+        <!-- User Dashboard -->
+        <activity
+            android:name=".UserDashboardDemo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- RecyclerView Sample -->
+        <activity
+            android:name=".RecyclerViewSample"
+            android:exported="false" />
+
+        <!-- Delivery Method Page -->
+        <activity
+            android:name=".Delivery_Method_page"
+            android:exported="false" />
+
+        <!-- Other Activities -->
+        <activity
+            android:name=".Rent_Tractor"
+            android:exported="false" />
+        <activity
+            android:name=".Order_Sucessful_Page"
+            android:exported="false" />
+        <activity
+            android:name=".Place_Order_Page"
+            android:exported="false" />
+        <activity
+            android:name=".Cart_Page"
+            android:exported="false" />
+        <activity
+            android:name=".Rent_Land_1"
+            android:exported="false" />
+        <activity
+            android:name=".One_Item_page"
+            android:exported="false" />
+        <activity
+            android:name=".Edit_Information_Page"
+            android:exported="false" />
+        <activity
+            android:name=".Update_Page"
+            android:exported="false" />
+        <activity
+            android:name=".Admin_Page"
+            android:exported="false" />
+        <activity
+            android:name=".UserSelectionActivity"
+            android:exported="false" />
+        <activity android:name=".UserDashboardActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_dashboard" />
+        <activity android:name=".Vehicle_owner_login" android:exported="false" />
+        <activity android:name=".Land_owner_login" android:exported="false" />
+        <activity android:name=".HomePageActivity" android:exported="false" />
+        <activity android:name=".user_page" android:exported="false" />
+
+        <!-- MainActivity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <!-- Default action for app launch -->
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <!-- Custom action to open PesticidesFragment -->
+                <action android:name="com.example.pesticidessellingapp.OPEN_PESTICIDES_FRAGMENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
