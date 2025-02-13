@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Add Rentals Title -->
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Rentals"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:paddingBottom="10dp" />
+
+        <!-- Owner Name -->
+        <EditText
+            android:id="@+id/owner_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Owner Name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+        <!-- Contact Details -->
+        <EditText
+            android:id="@+id/contact_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact Details (Phone/Email)"
+            android:inputType="textEmailAddress|phone"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+        <!-- Type Selection -->
+        <RadioGroup
+            android:id="@+id/type_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <RadioButton
+                android:id="@+id/type_land"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Land" />
+
+            <RadioButton
+                android:id="@+id/type_tractor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tractor" />
+        </RadioGroup>
+
+        <!-- Location -->
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Location"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+        <!-- Size or Model & Condition -->
+        <EditText
+            android:id="@+id/size_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Size (for land) / Model and Condition (for tractors)"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+        <!-- Rental Price -->
+        <EditText
+            android:id="@+id/rental_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rental Price"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+        <!-- Upload Images -->
+        <Button
+            android:id="@+id/upload_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Image (Land/Tractor)" />
+
+        <ImageView
+            android:id="@+id/image_preview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <!-- Upload Documents -->
+        <Button
+            android:id="@+id/upload_document"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Document" />
+
+        <TextView
+            android:id="@+id/document_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No document uploaded"
+            android:visibility="gone" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+
+    </LinearLayout>
+</ScrollView>

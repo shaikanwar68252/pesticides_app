@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Tractor Image -->
+    <ImageView
+        android:id="@+id/img_tractor1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <!-- Tractor Name -->
+    <TextView
+        android:id="@+id/txt_tractor_name1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tractor Name"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingTop="10dp" />
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/txt_price1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price: ₹1000/day"
+        android:textSize="18sp"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:id="@+id/txt_description1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:paddingTop="5dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:textSize="16sp"
+        android:paddingTop="10dp" />
+
+    <Button
+        android:id="@+id/btn_select_date1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick a Date" />
+
+    <!-- Time Picker -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Time"
+        android:textSize="16sp"
+        android:paddingTop="10dp" />
+
+    <Button
+        android:id="@+id/btn_select_time1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick a Time" />
+
+    <!-- Confirm Booking Button -->
+    <Button
+        android:id="@+id/btn_book_now1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Booking"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>

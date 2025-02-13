@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/txt_success_message1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Successful!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="20dp"/>
+
+    <!-- Booking Details -->
+    <TextView
+        android:id="@+id/txt_booking_details1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booking Details:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingTop="10dp" />
+
+    <TextView
+        android:id="@+id/info_book11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item: Tractor\nDuration: 1 Year\nPrice: ₹5000"
+        android:textSize="16sp"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/btn_go_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Home"
+        android:padding="10dp"/>
+</LinearLayout>

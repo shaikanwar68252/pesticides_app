@@ -1,80 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".One_Item_page">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-165dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/textView17"
+        <!-- Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Square Finish"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:background="#4CAF50"/>
 
+
+        <!-- Product Image -->
         <ImageView
-            android:id="@+id/imageView6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/item_1" />
+            android:layout_height="250dp"
+            android:src="@drawable/whatsapp_image_2024_12_30_at_11_09_48_am" />
 
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="match_parent"
+        <!-- Discount Tag -->
+
+        <!-- Product Name -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:text="RS.250/-" />
+            android:text="Square Finish"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp" />
+
+        <!-- Rating -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200gm"
+
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Price Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹983"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Origin: Africa"
+
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView18"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Details"
-            android:textAlignment="center" />
+            android:text="₹1450"
+            android:textSize="16sp"
 
+
+            android:layout_marginStart="5dp" />
+
+
+
+        <!-- Size -->
         <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mass                                                                             100gms" />
+            android:text="Stock:131"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp" />
 
-        <TextView
-            android:id="@+id/textView20"
+        <!-- Buttons -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Origin                                                                             Africa" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Status                                                                           156 Items left" />
+            <Button
+                android:id="@+id/btn_add_to_cart"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
 
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total                                                                             250rs" />
+                android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/button14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="470dp"
-            android:text="Add To Cart" />
+            <Button
+                android:id="@+id/btn_buy_now"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Buy Now"
+
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

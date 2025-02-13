@@ -7,90 +7,99 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PesticidesSellingApp"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
-        <!-- All_Products Activity -->
         <activity
-            android:name=".All_Products"
+            android:name=".Order_sucessfull_page"
             android:exported="true" />
-
-        <!-- User Dashboard -->
         <activity
-            android:name=".UserDashboardDemo"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- RecyclerView Sample -->
+            android:name=".Cart_View"
+            android:exported="true" />
         <activity
-            android:name=".RecyclerViewSample"
+            android:name=".Booking_Sucessful"
+            android:exported="true" />
+        <activity
+            android:name=".Payment_Gateway_Rental"
+            android:exported="true" />
+        <activity
+            android:name=".Land_Details"
+            android:exported="true" />
+        <activity
+            android:name=".Tractors_Details"
+            android:exported="true" />
+        <activity
+            android:name=".Owner_Add"
+            android:exported="true" />
+        <activity
+            android:name=".Search_Recyclerview"
+            android:exported="true" />
+        <activity
+            android:name=".Address_Page"
+            android:exported="true" />
+        <activity
+            android:name=".Bottom_Navigation"
+            android:exported="true" />
+        <activity
+            android:name=".signup_page"
             android:exported="false" />
-
-        <!-- Delivery Method Page -->
+        <activity
+            android:name=".Payment_Successfull"
+            android:exported="false" />
+        <activity
+            android:name=".Payment_Continuning"
+            android:exported="true" />
+        <activity
+            android:name=".Payment_Gateway"
+            android:exported="true" />
         <activity
             android:name=".Delivery_Method_page"
-            android:exported="false" />
-
-        <!-- Other Activities -->
+            android:exported="true" />
         <activity
             android:name=".Rent_Tractor"
             android:exported="false" />
-        <activity
-            android:name=".Order_Sucessful_Page"
-            android:exported="false" />
+
         <activity
             android:name=".Place_Order_Page"
             android:exported="false" />
-        <activity
-            android:name=".Cart_Page"
-            android:exported="false" />
-        <activity
-            android:name=".Rent_Land_1"
-            android:exported="false" />
+
         <activity
             android:name=".One_Item_page"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Edit_Information_Page"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Update_Page"
             android:exported="false" />
         <activity
             android:name=".Admin_Page"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UserDashboardActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_dashboard" />
+        <activity
+            android:name=".Vehicle_owner_login"
+            android:exported="false" />
+        <activity
+            android:name=".user_page"
             android:exported="false" />
         <activity
             android:name=".UserSelectionActivity"
-            android:exported="false" />
-        <activity android:name=".UserDashboardActivity"
-            android:exported="false"
-            android:label="@string/title_activity_user_dashboard" />
-        <activity android:name=".Vehicle_owner_login" android:exported="false" />
-        <activity android:name=".Land_owner_login" android:exported="false" />
-        <activity android:name=".HomePageActivity" android:exported="false" />
-        <activity android:name=".user_page" android:exported="false" />
-
-        <!-- MainActivity -->
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <!-- Default action for app launch -->
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <!-- Custom action to open PesticidesFragment -->
-                <action android:name="com.example.pesticidessellingapp.OPEN_PESTICIDES_FRAGMENT" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

@@ -4,49 +4,64 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Delivery_Method_page extends AppCompatActivity {
+    private Spinner spinnerPaymentMethod;
+    private Button btnProceed;
+    private String selectedPaymentMethod = "Cash on Delivery"; // Default selection
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_method_page);
 
-        // Initialize the spinner
-        Spinner deliveryMethodSpinner = findViewById(R.id.spinner);
+        // Initialize Spinner and Button
+        spinnerPaymentMethod = findViewById(R.id.spinner_payment_method);
+        btnProceed = findViewById(R.id.btnProceed);
 
-        // Define the delivery methods
-        List<String> deliveryMethods = Arrays.asList("Cash on Delivery", "Online Payment");
+        // Payment options
+        String[] paymentMethods = {"Cash on Delivery", "Online Payment"};
 
-        // Set up the adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                deliveryMethods
-        );
+        // Create and set Adapter for Spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, paymentMethods);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerPaymentMethod.setAdapter(adapter);
 
-        // Attach the adapter to the spinner
-        deliveryMethodSpinner.setAdapter(adapter);
-
-        // Set up the spinner's item selection listener
-        deliveryMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // Handle Spinner Selection
+        spinnerPaymentMethod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedMethod = parent.getItemAtPosition(position).toString();
-                Toast.makeText(Delivery_Method_page.this, "Selected: " + selectedMethod, Toast.LENGTH_SHORT).show();
+                selectedPaymentMethod = parent.getItemAtPosition(position).toString();
+
+                // Change button text based on selection
+                if (selectedPaymentMethod.equals("Cash on Delivery")) {
+                    btnProceed.setText("Place Order");
+                } else {
+                    btnProceed.setText("Proceed to Payment");
+                }
+
+                // Show Toast message
+                Toast.makeText(Delivery_Method_page.this, "Selected: " + selectedPaymentMethod, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Optional: Add behavior for when no item is selected
+                // Default selection
+                selectedPaymentMethod = "Cash on Delivery";
+            }
+        });
+
+        // Handle Button Click
+        btnProceed.setOnClickListener(view -> {
+            if (selectedPaymentMethod.equals("Cash on Delivery")) {
+                Toast.makeText(Delivery_Method_page.this, "Order Placed with Cash on Delivery", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(Delivery_Method_page.this, "Redirecting to Online Payment...", Toast.LENGTH_LONG).show();
+                // Implement payment gateway logic here (e.g., open payment activity)
             }
         });
     }

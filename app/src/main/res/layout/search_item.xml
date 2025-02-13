@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:id="@+id/productCategory1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:text="Category"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/productPrice1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price: $XX.XX"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:paddingTop="2dp" />
+
+    <TextView
+        android:id="@+id/productDescription1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description of the product goes here..."
+        android:textSize="14sp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:paddingTop="5dp" />
+
+    <Button
+        android:id="@+id/buyButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy Now"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

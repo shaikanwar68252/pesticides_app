@@ -1,7 +1,6 @@
 package com.example.pesticidessellingapp;
 
 import android.os.Bundle;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,18 +9,17 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.pesticidessellingapp.databinding.ActivityUserDashboardBinding;
 
 public class UserDashboardActivity extends AppCompatActivity {
 
-    private ActivityUserDashboardBinding binding;
+    //private ActivityUserDashboardBinding binding;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    //@Override
+    //protected void onCreate(Bundle savedInstanceState) {
+        //super.onCreate(savedInstanceState);
 
-        binding = ActivityUserDashboardBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        //binding = ActivityUserDashboardBinding.inflate(getLayoutInflater());
+        //setContentView(binding.getRoot());
 
 //        BottomNavigationView navView = findViewById(R.id.nav_view);
 //        // Passing each menu ID as a set of Ids because each
@@ -34,4 +32,3 @@ public class UserDashboardActivity extends AppCompatActivity {
 //        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-}

@@ -21,43 +21,23 @@
             android:layout_marginTop="30dp"
             android:text="Pesticides Selling App"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="99dp"
-            android:layout_height="100dp"
+            android:layout_width="333dp"
+            android:layout_height="191dp"
+            android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            tools:src="@tools:sample/avatars" />
+            android:src="@drawable/imagehome"/>
 
-        <Button
-            android:id="@+id/button3"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="User Login" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Admin Login" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Land Owner Login" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Vehicle Owner Login" />
-
+            android:scrollbars="vertical" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
