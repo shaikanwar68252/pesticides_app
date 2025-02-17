@@ -7,9 +7,9 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/Add_Rentals"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Add Rentals" />
+        android:id="@+id/rentals"
+        android:icon="@drawable/rent_ic"
+        android:title="Rentals" />
 
     <item
         android:id="@+id/Person"

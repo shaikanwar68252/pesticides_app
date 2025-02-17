@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".userScreens.UserHomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:menu="@menu/user_tool_bar"
+            app:title="Jai Kisan"
+            app:titleTextColor="#2E7D32" />
+
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:focusable="false"
+            android:hint="Search pesticides..."
+            android:padding="15dp"
+            android:drawableStart="@drawable/search_ic"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6B7280"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/search_bar_bg"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search pesticides..." />
+
+        <TextView
+            android:id="@+id/subtitile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="13dp"
+            android:text="@string/categories"
+            android:fontFamily="@font/inter_medium"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:scrollbars="horizontal"
+            android:scrollbarSize="1.5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/user_category_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+<!--        offer screen will come here -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="16dp"
+            android:backgroundTint="#2E7D32"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Special Offer"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Get 20% off on your first purchase!"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14sp"
+                    android:layout_marginVertical="8dp"
+                    android:textColor="@color/white"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/shopNowBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:textAllCaps="false"
+                    android:paddingHorizontal="30dp"
+                    android:background="@drawable/offer_btn_bg"
+                    android:text="Shop Now"
+
+                    android:textColor="#2E7D32"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="13dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Featured products"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:nestedScrollingEnabled="false"
+            android:padding="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/user_home_item" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:background="@color/white">
 
@@ -16,14 +17,6 @@
         <!-- Profile Heading -->
 
         <!-- Profile Image -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="User Profile"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/profile_image"
@@ -35,14 +28,15 @@
             android:background="@color/white"/>
 
         <!-- Button to Select Image -->
+
+        <!-- Name Input -->
         <Button
             android:id="@+id/btn_select_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Photo"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:text="Select Photo" />
 
-        <!-- Name Input -->
         <EditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
@@ -102,5 +96,28 @@
             android:background="@color/white"
             android:text="Logout"
             android:textColor="@color/white" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="40dp">
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:layout_gravity="end"
+            android:text="@string/change_n_language"
+            android:textAlignment="center"
+            android:textStyle="normal"
+            android:layout_marginEnd="15dp"
+            tools:ignore="RtlCompat" />
+
     </LinearLayout>
 </ScrollView>
