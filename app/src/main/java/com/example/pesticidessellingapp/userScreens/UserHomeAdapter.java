@@ -36,7 +36,7 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
         holder.productName.setText(product.getName());
         holder.productPrice.setText("$ " + product.getPrice());
 
-        Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
+        Glide.with(context).load(product.getImageUrl()).placeholder(R.drawable.image_1).into(holder.productImage);
 
         holder.addButton.setOnClickListener(v -> {
             // Handle add button click (e.g., add to cart)

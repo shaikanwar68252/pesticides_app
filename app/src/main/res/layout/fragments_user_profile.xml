@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Profile"
+                android:textSize="20sp"
+                android:fontFamily="@font/inter_bold"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_edit" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="13dp">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="13dp"
+                    app:cardCornerRadius="90dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:id="@+id/product_image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/frame__1_" />
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_bold"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="4dp"
+                        android:text="Green Solutions Ltd."
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="License: AGR-2024-0123"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/location_ic"
+                        android:text="California, USA"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="20dp"-->
+<!--        android:gravity="center">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/profile_image"-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:src="@drawable/image_3"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@color/white"/>-->
+
+<!--        &lt;!&ndash; Button to Select Image &ndash;&gt;-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Enter Your Name"-->
+<!--            android:textSize="16sp"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:layout_marginBottom="10dp"/>-->
+
+<!--        &lt;!&ndash; Cultivated Crop Input &ndash;&gt;-->
+<!--        <EditText-->
+<!--            android:id="@+id/et_crop"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Enter Crop Cultivated"-->
+<!--            android:textSize="16sp"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:layout_marginBottom="10dp"/>-->
+
+<!--        &lt;!&ndash; Land Size Input &ndash;&gt;-->
+<!--        <EditText-->
+<!--            android:id="@+id/et_land"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Enter Land Size in Acres"-->
+<!--            android:textSize="16sp"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:layout_marginBottom="20dp"/>-->
+
+<!--        &lt;!&ndash; Update Profile Button &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/btn_update_profile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Update Profile"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_marginBottom="20dp"/>-->
+
+<!--        &lt;!&ndash; Logout Button &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/Add_Address1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:text="Add Address"-->
+<!--            android:textColor="@color/white" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_logout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/white"-->
+<!--            android:text="Logout"-->
+<!--            android:textColor="@color/white" />-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="45dp"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            app:cardCornerRadius="40dp">-->
+<!--            <ImageView-->
+<!--                android:layout_width="45dp"-->
+<!--                android:layout_height="45dp" />-->
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="12dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:text="@string/change_n_language"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textStyle="normal"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            tools:ignore="RtlCompat" />-->
+
+<!--    </LinearLayout>-->
+</ScrollView>

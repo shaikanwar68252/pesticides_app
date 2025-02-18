@@ -1,14 +1,14 @@
 package com.example.pesticidessellingapp.userScreens;
 
-public class addrental_model {
+public class UserRentalModel {
     private String productName;
     private String productImage;
     private String productPrice;
 
-    public addrental_model() {
+    public UserRentalModel() {
     }
 
-    public addrental_model(String productName, String productImage, String productPrice) {
+    public UserRentalModel(String productName, String productImage, String productPrice) {
         this.productName = productName;
         this.productImage = productImage;
         this.productPrice = productPrice;

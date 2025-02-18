@@ -1,10 +1,9 @@
 package com.example.pesticidessellingapp.userScreens;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.pesticidessellingapp.R;
@@ -16,19 +15,7 @@ public class UserDashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_navigation);
-
-        // Adjusting for system insets (optional for UI handling)
-        View mainView = findViewById(R.id.container);
-        ViewCompat.setOnApplyWindowInsetsListener(mainView, (v, insets) -> {
-            WindowInsetsCompat systemBars = insets;
-            int left = systemBars.getInsets(WindowInsetsCompat.Type.systemBars()).left;
-            int top = systemBars.getInsets(WindowInsetsCompat.Type.systemBars()).top;
-            int right = systemBars.getInsets(WindowInsetsCompat.Type.systemBars()).right;
-            int bottom = systemBars.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
-            v.setPadding(left, top, right, bottom);
-            return insets;
-        });
+        setContentView(R.layout.activity_user_dashboard);
 
         bottomNavigationView = findViewById(R.id.bottomnavigation);
 
@@ -44,7 +31,7 @@ public class UserDashboardActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.rentals) {
                 selectedFragment = new UserRentalFragment();
             } else if (item.getItemId() == R.id.Person) {
-                selectedFragment = new Profile_Fragment();
+                selectedFragment = new UserProfileFragment();
             }
             if (selectedFragment != null) {
                 getSupportFragmentManager().popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -55,5 +42,25 @@ public class UserDashboardActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        if (currentFragment instanceof UserHomeFragment) {
+            showExitDialog();
+        } else {
+            bottomNavigationView.setSelectedItemId(R.id.home);
+        }
+    }
+
+    private void showExitDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Exit App")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setNegativeButton("No", null)
+                .show();
     }
 }

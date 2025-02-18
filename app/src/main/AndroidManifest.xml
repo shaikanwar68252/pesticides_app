@@ -49,7 +49,7 @@
             android:name=".userScreens.Search_Recyclerview"
             android:exported="true" />
         <activity
-            android:name=".userScreens.Address_Page"
+            android:name=".userScreens.UserAddressActivity"
             android:exported="true" />
         <activity
             android:name=".userScreens.UserDashboardActivity"

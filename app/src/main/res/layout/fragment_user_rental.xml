@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_proceed_rental"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/filled_btn_bg"
+            android:paddingVertical="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:textColor="@color/white"
+            android:drawableStart="@android:drawable/ic_menu_add"
+            android:paddingHorizontal="20dp"
+            android:text="Add Your Rentals" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_cart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/addrental_item" />
+
+
+    </LinearLayout>
+</ScrollView>

@@ -18,11 +18,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.pesticidessellingapp.Auth.LoginActivity;
 import com.example.pesticidessellingapp.R;
 
 import java.io.IOException;
 
-public class Profile_Fragment extends Fragment {
+public class UserProfileFragment extends Fragment {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -35,23 +36,23 @@ public class Profile_Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile_, container, false);
+        View view = inflater.inflate(R.layout.fragments_user_profile, container, false);
 
         // Initialize UI elements
-        profileImage = view.findViewById(R.id.profile_image);
-        etName = view.findViewById(R.id.et_name);
-        etCrop = view.findViewById(R.id.et_crop);
-        etLand = view.findViewById(R.id.et_land);
-        btnSelectImage = view.findViewById(R.id.btn_select_image);
-        btnUpdateProfile = view.findViewById(R.id.btn_update_profile);
-        btnAddAddress = view.findViewById(R.id.Add_Address1);
-        btnLogout = view.findViewById(R.id.btn_logout);
+//        profileImage = view.findViewById(R.id.profile_image);
+//        etName = view.findViewById(R.id.et_name);
+//        etCrop = view.findViewById(R.id.et_crop);
+//        etLand = view.findViewById(R.id.et_land);
+//        btnSelectImage = view.findViewById(R.id.btn_select_image);
+//        btnUpdateProfile = view.findViewById(R.id.btn_update_profile);
+//        btnAddAddress = view.findViewById(R.id.Add_Address1);
+//        btnLogout = view.findViewById(R.id.btn_logout);
 
-        // Set OnClickListener for buttons
-        btnSelectImage.setOnClickListener(clickListener);
-        btnUpdateProfile.setOnClickListener(clickListener);
-        btnAddAddress.setOnClickListener(clickListener);
-        btnLogout.setOnClickListener(clickListener);
+//        // Set OnClickListener for buttons
+//        btnSelectImage.setOnClickListener(clickListener);
+//        btnUpdateProfile.setOnClickListener(clickListener);
+//        btnAddAddress.setOnClickListener(clickListener);
+//        btnLogout.setOnClickListener(clickListener);
 
         return view;
     }
@@ -113,13 +114,13 @@ public class Profile_Fragment extends Fragment {
     // Add Address logic
     // Add Address logic
     private void addAddress() {
-        Intent intent = new Intent(getActivity(), Address_Page.class);
+        Intent intent = new Intent(getActivity(), UserAddressActivity.class);
         startActivity(intent);
     }
 
     // Logout logic
     private void logout() {
-        Intent intent = new Intent(getActivity(), UserLoginActivity.class);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
     }
 }

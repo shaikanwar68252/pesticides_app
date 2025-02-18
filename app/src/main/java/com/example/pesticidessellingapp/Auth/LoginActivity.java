@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.loginBtn.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, UserDashboardActivity.class);
             startActivity(intent);
+            finishAffinity();
         });
 
         binding.signUpText.setOnClickListener(v -> {

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pesticidessellingapp.R;
 
-public class Address_Page extends AppCompatActivity {
+public class UserAddressActivity extends AppCompatActivity {
 
     private EditText etFullname, etMobile, etPincode, etState, etCity, etHouseNo, etRoad;
     private RadioGroup radioGroupAddressType;
@@ -18,7 +18,7 @@ public class Address_Page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_address_page);
+        setContentView(R.layout.activity_user_address);
 
         etFullname = findViewById(R.id.et_fullname);
         etMobile = findViewById(R.id.et_mobile);

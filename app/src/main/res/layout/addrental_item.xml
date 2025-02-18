@@ -1,65 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="12dp">
 
     <LinearLayout
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:orientation="horizontal"
+        android:padding="13dp">
 
-        <!-- Product Image -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="13dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
-        <!-- Product Name -->
+            <ImageView
+                android:id="@+id/product_image1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/frame__1_" />
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/product_image1"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/product_name1"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextDate2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#1E40AF"
+                android:background="@drawable/rental_catergory_bg"
+                android:paddingHorizontal="8dp"
+                android:paddingTop="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Tractor/Land"
+                android:paddingBottom="4dp"/>
 
-        <!-- Price -->
-        <TextView
-            android:id="@+id/product_price1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingHorizontal="8dp"
+                android:fontFamily="@font/inter_semibold"
+                android:paddingVertical="4dp"
+                android:text="Mahindra 575"/>
 
-        <!-- "Add" Button -->
-        <Button
-            android:id="@+id/ver_docs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Verify Documents"
-            android:textSize="12sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Eastern Plains"
+                android:drawableStart="@drawable/location_ic"
+                android:fontFamily="@font/inter"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"/>
 
-        <Button
-            android:id="@+id/add_button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_green_light"
-            android:text="Rent now"
-            android:textSize="12sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:text="₹2,800/acre"
+                android:textColor="#4CAF50"
+                android:fontFamily="@font/inter_semibold"
+                android:paddingHorizontal="8dp"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>
