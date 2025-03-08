@@ -1,14 +1,15 @@
 package com.example.pesticidessellingapp.ApiResponse;
 
 public class SignupResponse {
-    private boolean success;
+    private String status; // Change from boolean to String to match API response
     private String message;
 
-    public boolean isSuccess() {
-        return success;
+    public String getStatus() {
+        return status;
     }
 
     public String getMessage() {
         return message;
     }
 }
+

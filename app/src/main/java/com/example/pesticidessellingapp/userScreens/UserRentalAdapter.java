@@ -5,13 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.pesticidessellingapp.R;
 
 import java.util.List;
@@ -20,18 +21,18 @@ public class UserRentalAdapter extends RecyclerView.Adapter<UserRentalAdapter.Vi
 
     private Context context;
     private List<UserRentalModel> rentalList;
-    private OnItemClickListener onItemClickListener;
+    private OnRentalItemClickListener listener;
 
-    // Interface for item click listener
-    public interface OnItemClickListener {
-        void onItemClick(int position, UserRentalModel rentalItem);
+    // Interface for item click
+    public interface OnRentalItemClickListener {
+        void onRentalItemClick(int position, UserRentalModel rentalItem);
     }
 
-    // Constructor with listener
-    public UserRentalAdapter(Context context, List<UserRentalModel> rentalList, OnItemClickListener onItemClickListener) {
+    // Constructor accepting context, list, and listener
+    public UserRentalAdapter(Context context, List<UserRentalModel> rentalList, OnRentalItemClickListener listener) {
         this.context = context;
         this.rentalList = rentalList;
-        this.onItemClickListener = onItemClickListener;
+        this.listener = listener;
     }
 
     @NonNull
@@ -45,46 +46,20 @@ public class UserRentalAdapter extends RecyclerView.Adapter<UserRentalAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         UserRentalModel rentalItem = rentalList.get(position);
 
-//        // Set product details
-//        holder.productName.setText(rentalItem.getProductName());
-//        holder.productPrice.setText(rentalItem.getProductPrice());
-//        Glide.with(context).load(rentalItem.getProductImage()).into(holder.productImage);
-//
-//        // Handle "Rent Now" button click
-//        holder.btnRentNow.setOnClickListener(v -> {
-//            String selectedDate = holder.editTextDate.getText().toString().trim();
-//            if (selectedDate.isEmpty()) {
-//                Toast.makeText(context, "Please select a date before renting.", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//
-//            Intent intent;
-//
-//            // Determine activity based on product name
-//            if (rentalItem.getProductName().toLowerCase().contains("tractor")) {
-//                intent = new Intent(context, Tractors_Details.class);
-//            } else if (rentalItem.getProductName().toLowerCase().contains("land")) {
-//                intent = new Intent(context, Land_Details.class);
-//            } else {
-//                Toast.makeText(context, "Invalid item type", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//
-//            // Pass data to the activity
-//            intent.putExtra("item_name", rentalItem.getProductName());
-//            intent.putExtra("image_url", rentalItem.getProductImage());
-//            intent.putExtra("price", rentalItem.getProductPrice());
-//            intent.putExtra("selected_date", selectedDate);
-//            context.startActivity(intent);
-//        });
-//
-//        // Handle "Verify Documents" button click
-//        holder.btnVerifyDocs.setOnClickListener(v ->
-//                Toast.makeText(context, "Verifying Documents...", Toast.LENGTH_SHORT).show()
-//        );
-//
-//        // Handle item click (row click)
-//        holder.itemView.setOnClickListener(v -> onItemClickListener.onItemClick(position, rentalItem));
+        holder.txtProductName.setText(rentalItem.getProductName());
+        holder.txtProductPrice.setText(rentalItem.getProductPrice());
+
+        // Load image using Glide
+        Glide.with(context)
+                .load(rentalItem.getProductImage())
+                .into(holder.imgProduct);
+
+        // Handle item click
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onRentalItemClick(position, rentalItem);
+            }
+        });
     }
 
     @Override
@@ -93,16 +68,16 @@ public class UserRentalAdapter extends RecyclerView.Adapter<UserRentalAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView productImage;
-        TextView productName, productPrice;
-        EditText editTextDate;
-        Button btnRentNow, btnVerifyDocs;
+        TextView txtProductName, txtProductPrice;
+        ImageView imgProduct;
+        CardView itemRent;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productImage = itemView.findViewById(R.id.product_image1);
-
-
+            txtProductName = itemView.findViewById(R.id.pro_rent1);
+            txtProductPrice = itemView.findViewById(R.id.pro_rate1);
+            imgProduct = itemView.findViewById(R.id.product_image12);
+            itemRent = itemView.findViewById(R.id.item_rent);
         }
     }
 }

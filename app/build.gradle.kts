@@ -52,6 +52,7 @@ dependencies {
     testImplementation(libs.junit)
     implementation(libs.picasso)
     implementation(libs.checkout)
+
     implementation (libs.retrofit)
 
     // Gson Converter (for JSON serialization/deserialization)

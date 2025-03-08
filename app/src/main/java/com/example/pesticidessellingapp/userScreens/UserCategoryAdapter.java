@@ -1,6 +1,8 @@
 package com.example.pesticidessellingapp.userScreens;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -46,6 +49,24 @@ public class UserCategoryAdapter extends RecyclerView.Adapter<UserCategoryAdapte
                 .into(holder.categoryIc);
 
         holder.categoryName.setText(item.getCategoryName());
+
+        holder.itemView.setOnClickListener(view -> {
+            // Create an instance of the fragment
+            UserHomeSearchFragment searchFragment = new UserHomeSearchFragment();
+
+            // ✅ Pass category name using Bundle
+            Bundle bundle = new Bundle();
+            bundle.putString("CATEGORY_NAME", item.getCategoryName());
+            searchFragment.setArguments(bundle);
+
+            // ✅ Replace current fragment with UserHomeSearchFragment
+            ((AppCompatActivity) context).getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, searchFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
 
     }
 

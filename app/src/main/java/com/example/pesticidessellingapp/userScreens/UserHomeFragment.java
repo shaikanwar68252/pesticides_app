@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +20,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pesticidessellingapp.Module.CategoryModule;
+import com.example.pesticidessellingapp.Module.ProductResponse;
 import com.example.pesticidessellingapp.R;
+import com.example.pesticidessellingapp.api.ApiClient;
+import com.example.pesticidessellingapp.api.ApiService;
 import com.example.pesticidessellingapp.databinding.FragmentUserHomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class UserHomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private UserHomeAdapter adapter;
-    private List<Model_Home> productList;
+    private List<ProductResponse.Product> productList;
 
     private ArrayList<CategoryModule> categoryList;
     private UserCategoryAdapter categoryAdapter;
@@ -58,35 +66,12 @@ public class UserHomeFragment extends Fragment {
         });
 
 
-        initializeAdapters();
+        initializeAdapters(view);
         loadCategories();
+        loadProducts();
 
-        recyclerView = view.findViewById(R.id.recyclerView);
 
-        // ✅ Set Layout Manager
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-
-        // ✅ Fix scrolling inside NestedScrollView
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setSmoothScrollbarEnabled(true);
-        recyclerView.setNestedScrollingEnabled(false);
-
-        // Sample product list
-        productList = new ArrayList<>();
-        productList.add(new Model_Home("Bamboo Water Bottle", "https://m.media-amazon.com/images/I/818lES8tpmL.jpg", 24.99));
-        productList.add(new Model_Home("Recycled Paper Notebook", "https://example.com/notebook.jpg", 12.49));
-        productList.add(new Model_Home("Reusable Coffee Cup", "https://example.com/cup.jpg", 18.99));
-        productList.add(new Model_Home("Organic Cotton Tote", "https://example.com/tote.jpg", 15.99));
-        productList.add(new Model_Home("Bamboo Cutlery Set", "https://example.com/cutlery.jpg", 7.99));
-        productList.add(new Model_Home("Glass Food Container", "https://example.com/container.jpg", 22.99));
-        productList.add(new Model_Home("Glass Food Container", "https://example.com/container.jpg", 22.99));
-        productList.add(new Model_Home("Glass Food Container", "https://example.com/container.jpg", 22.99));
-        productList.add(new Model_Home("Glass Food Container", "https://example.com/container.jpg", 22.99));
-        productList.add(new Model_Home("Glass Food Container", "https://example.com/container.jpg", 22.99));
-
-        adapter = new UserHomeAdapter(getContext(), productList);
-        recyclerView.setAdapter(adapter);
+//
 
         binding.searchBar.setOnClickListener(view1 -> {
             // Replace with the new fragment
@@ -109,6 +94,31 @@ public class UserHomeFragment extends Fragment {
         return view;
     }
 
+    private void loadProducts() {
+
+        ApiService service = ApiClient.getClient().create(ApiService.class);
+        service.getProducts().enqueue(new Callback<ProductResponse>() {
+            @Override
+            public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+                if(response.isSuccessful()){
+                    if (response.body().getStatus().equals("success")){
+                        productList.addAll(response.body().getProducts());
+                        adapter.notifyDataSetChanged();
+                    }
+                } else {
+                    Log.d("TAG", "onResponse: " + response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProductResponse> call, Throwable t) {
+
+                Log.d("TAG", "onFailure: " + t.getMessage());
+            }
+        });
+
+    }
+
     private void loadCategories() {
         // ✅ Add multiple categories
         categoryList.add(new CategoryModule("https://example.com/insecticides.jpg", "Insecticides"));
@@ -123,10 +133,25 @@ public class UserHomeFragment extends Fragment {
     }
 
 
-    private void initializeAdapters() {
+    private void initializeAdapters(View view) {
         categoryAdapter = new UserCategoryAdapter(categoryList, getContext());
         binding.categoryRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.categoryRV.setAdapter(categoryAdapter);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setSmoothScrollbarEnabled(true);
+        recyclerView.setNestedScrollingEnabled(false);
+
+        productList = new ArrayList<>();
+
+        adapter = new UserHomeAdapter(getContext(), productList);
+        recyclerView.setAdapter(adapter);
+
     }
 
 

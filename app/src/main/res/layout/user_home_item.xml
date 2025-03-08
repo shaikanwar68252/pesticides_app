@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp"
+    android:id="@+id/item55"
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="12dp">
 
@@ -21,7 +22,7 @@
 
         <!-- Product Name -->
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/product_name_homeitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
@@ -33,7 +34,7 @@
 
 
         <TextView
-            android:id="@+id/product_price"
+            android:id="@+id/product_price_userhome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main1234"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:padding="16dp">
+
+        <!-- Privacy & Security Header -->
+        <LinearLayout
+            android:id="@+id/backLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:padding="12dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/pro_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/backarrow_1"
+                android:drawablePadding="13.25sp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Add Pesticide Product"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Name "
+                android:layout_marginBottom="4dp"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+               android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/hint_proname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter product name"
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brand "
+                android:layout_marginBottom="4dp"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/hint_brandname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter brand name"
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:layout_marginBottom="4dp"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_medium"
+            android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/etPropertyTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter product name"
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quantity "
+                android:layout_marginBottom="4dp"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/hint_quantity"
+                    android:layout_width="250dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Enter quantity"
+                    android:padding="12dp"
+                    android:fontFamily="@font/inter_light"
+                    android:textSize="16sp"
+                    android:background="@drawable/edit_text_bg" />
+
+                <Spinner
+                    android:id="@+id/units"
+                    android:layout_width="100dp"
+                    android:layout_height="42dp"
+                    android:hint="Enter Unit"
+                    android:paddingStart="10dp"
+                    android:fontFamily="@font/inter_light"
+                    android:textSize="16sp"
+                    android:background="@drawable/edit_text_bg"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price "
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="24sp"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+            <EditText
+                android:id="@+id/price_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="₹ 0.00"
+
+
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/inter_medium"
+
+                android:paddingTop="8dp"
+                android:text="Discount "
+                android:textSize="14sp" />
+
+            <EditText
+            android:id="@+id/discount_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:padding="12dp"
+            android:fontFamily="@font/inter_light"
+            android:textSize="16sp"
+            android:background="@drawable/edit_text_bg" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Key Features"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="24sp"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+            <EditText
+                android:id="@+id/features_hint"
+                android:layout_width="358dp"
+                android:layout_height="100dp"
+                android:hint="Enter key features"
+
+
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Safety Precautions "
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="24sp"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+            <EditText
+                android:id="@+id/precautions_hint"
+                android:layout_width="358dp"
+                android:layout_height="100dp"
+                android:hint="Enter safety information"
+
+
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Technical Details"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="24sp"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingTop="8dp" />
+            <EditText
+                android:id="@+id/technical_details"
+                android:layout_width="358dp"
+                android:layout_height="100dp"
+                android:hint="Enter technical specifications"
+
+
+                android:padding="12dp"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Image"
+                    android:fontFamily="@font/inter_medium"
+                    android:paddingBottom="8dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:background="@drawable/dashed_border"
+                    android:gravity="center">
+
+                    <!-- Image Icon -->
+                    <ImageView
+                        android:id="@+id/upload_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/image_uploader"
+
+                        android:layout_gravity="center"/>
+
+                    <!-- Upload Text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap to upload product image"
+                        android:textSize="14sp"
+
+                        android:layout_gravity="center|bottom"
+                        android:paddingBottom="10dp"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/getStartedBtn"
+            android:layout_width="358dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/filledbtn_blue"
+            android:text="Add Product"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+</ScrollView>

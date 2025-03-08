@@ -41,27 +41,13 @@ public class UserRentalFragment extends Fragment {
         rentalList.add(new UserRentalModel("Land Plot A", "https://example.com/land1.jpg", "5000/month"));
         rentalList.add(new UserRentalModel("Harvester H3", "https://example.com/harvester3.jpg", "1800/day"));
         rentalList.add(new UserRentalModel("Plow P1", "https://example.com/plow1.jpg", "800/day"));
-        rentalList.add(new UserRentalModel("Plow P1", "https://example.com/plow1.jpg", "800/day"));
-        rentalList.add(new UserRentalModel("Plow P1", "https://example.com/plow1.jpg", "800/day"));
-        rentalList.add(new UserRentalModel("Plow P1", "https://example.com/plow1.jpg", "800/day"));
 
-        // Set LayoutManager (Horizontal)
+        // Set LayoutManager (Vertical)
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         recyclerViewCart.setLayoutManager(layoutManager);
 
-        // Set Adapter with item click handling
         adapter = new UserRentalAdapter(requireContext(), rentalList, (position, rentalItem) -> {
-            Intent intent;
-
-            // Determine which details activity to open
-            if (rentalItem.getProductName().toLowerCase().contains("tractor")) {
-                intent = new Intent(requireContext(), Tractors_Details.class);
-            } else if (rentalItem.getProductName().toLowerCase().contains("land")) {
-                intent = new Intent(requireContext(), Land_Details.class);
-            } else {
-                Toast.makeText(requireContext(), "Invalid item type", Toast.LENGTH_SHORT).show();
-                return;
-            }
+            Intent intent = new Intent(requireContext(), Tractors_Details2.class);
 
             // Pass data to the details activity
             intent.putExtra("item_name", rentalItem.getProductName());
@@ -76,11 +62,13 @@ public class UserRentalFragment extends Fragment {
 
         // Proceed Rental button
         btnProceedRental.setOnClickListener(v -> {
-
-            getParentFragmentManager().beginTransaction().replace(R.id.container, new AddRentalFragment()).addToBackStack("").commit();
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.container, new AddRentalFragment())
+                    .addToBackStack(null)
+                    .commit();
             Toast.makeText(requireContext(), "Proceeding with Rental", Toast.LENGTH_SHORT).show();
         });
 
-        return view; // Return inflated layout
+        return view;
     }
 }

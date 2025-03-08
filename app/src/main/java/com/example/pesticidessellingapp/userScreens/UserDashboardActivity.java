@@ -6,10 +6,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.pesticidessellingapp.BaseActivity;
 import com.example.pesticidessellingapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class UserDashboardActivity extends AppCompatActivity {
+public class UserDashboardActivity extends BaseActivity {
     private BottomNavigationView bottomNavigationView;
 
     @Override

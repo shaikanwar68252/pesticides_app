@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".userScreens.AddRentalFragment">
+    android:padding="16dp">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
+        <!-- Category Selection -->
         <RadioGroup
             android:id="@+id/categoryGroup"
             android:layout_width="match_parent"
@@ -28,8 +26,9 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="Land"
+                android:layout_marginEnd="5dp"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radioTractor"
@@ -40,13 +39,162 @@
                 android:button="@null"
                 android:gravity="center"
                 android:padding="12dp"
+                android:layout_marginStart="5dp"
                 android:text="Tractor"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
-
+                android:textSize="16sp" />
         </RadioGroup>
+
+        <!-- Property Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Property Title"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp" />
+
+        <EditText
+            android:id="@+id/etPropertyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter title"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg" />
+
+        <!-- Location -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select location"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/location_ic" />
+
+        <!-- Area/Size -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Area/Size"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp" />
+
+        <EditText
+            android:id="@+id/etArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter area in acres"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            />
+
+        <!-- Rate -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate (per day/acre)"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp" />
+
+        <EditText
+            android:id="@+id/etRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter rate"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg" />
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp" />
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describe your property"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:gravity="top"
+            android:minHeight="100dp"
+            android:inputType="textMultiLine" />
+
+        <!-- Upload Photos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Photos"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotted_border"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginVertical="8dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/upload_ic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload property photos"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+
+        <!-- Terms and Conditions -->
+        <CheckBox
+            android:id="@+id/cbTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I agree to the Terms and Conditions and Privacy Policy"
+            android:textSize="12sp"
+            android:paddingTop="8dp" />
+
+        <!-- List Property Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnListProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Property"
+            android:textAllCaps="false"
+            android:background="@drawable/filled_btn_bg"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 
-
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>

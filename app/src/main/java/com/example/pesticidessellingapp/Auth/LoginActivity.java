@@ -1,45 +1,91 @@
 package com.example.pesticidessellingapp.Auth;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.content.Intent;
-
-import androidx.activity.EdgeToEdge;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.pesticidessellingapp.R;
+import com.example.pesticidessellingapp.ApiResponse.LoginResponse;
+import com.example.pesticidessellingapp.IpV4Connection;
 import com.example.pesticidessellingapp.adminScreens.AdminDashboard;
-import com.example.pesticidessellingapp.CommonScreens.SignUpActivity;
+import com.example.pesticidessellingapp.api.ApiClient;
+import com.example.pesticidessellingapp.api.ApiService;
 import com.example.pesticidessellingapp.databinding.ActivityLoginBinding;
 import com.example.pesticidessellingapp.userScreens.UserDashboardActivity;
 
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class LoginActivity extends AppCompatActivity {
 
-    ActivityLoginBinding binding;
+    private static final String TAG = "LoginActivity"; // Debugging tag
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         binding.loginBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, UserDashboardActivity.class);
-            startActivity(intent);
-            finishAffinity();
+            String emailOrPhone = binding.editTextText.getText().toString().trim();
+            String password = binding.editTextTextPassword.getText().toString().trim();
+
+            if (emailOrPhone.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            letUserLogin(emailOrPhone, password);
+            Log.d(TAG, "Login button clicked with: " + emailOrPhone);
         });
 
         binding.signUpText.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(LoginActivity.this, UserDashboardActivity.class));
+        });
+    }
+
+    private void letUserLogin(String emailOrPhone, String password) {
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+
+        RequestBody emailRequestBody = RequestBody.create(okhttp3.MultipartBody.FORM, emailOrPhone);
+        RequestBody passwordRequestBody = RequestBody.create(okhttp3.MultipartBody.FORM, password);
+
+        Call<LoginResponse> call = apiService.loginUser(emailRequestBody, passwordRequestBody);
+
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    LoginResponse loginResponse = response.body();
+
+                    if (loginResponse.isStatus()) {
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+                        if (loginResponse.getData().getUserType().equalsIgnoreCase("Admin")) {
+                            startActivity(new Intent(LoginActivity.this, AdminDashboard.class));
+                        } else {
+                            startActivity(new Intent(LoginActivity.this, UserDashboardActivity.class));
+                        }
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Login Error: " + t.getMessage());
+            }
         });
     }
 }
+

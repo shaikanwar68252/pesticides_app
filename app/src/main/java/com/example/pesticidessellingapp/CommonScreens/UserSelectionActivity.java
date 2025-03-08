@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.pesticidessellingapp.Auth.LoginActivity;
 import com.example.pesticidessellingapp.R;
-import com.example.pesticidessellingapp.userScreens.UserLoginActivity;
+import com.example.pesticidessellingapp.Unused.ProductItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ public class UserSelectionActivity extends AppCompatActivity {
 
         adapter = new userselection_adapter(this, buttonList, (int position) -> {
             if (position == 0) {
-                startActivity(new Intent(UserSelectionActivity.this, UserLoginActivity.class));
+                startActivity(new Intent(UserSelectionActivity.this, ProductItem.UserLoginActivity.class));
             } else if (position == 1) {
                 startActivity(new Intent(UserSelectionActivity.this, LoginActivity.class));
             }
