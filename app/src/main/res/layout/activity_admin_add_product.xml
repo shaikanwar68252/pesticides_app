@@ -151,7 +151,7 @@
                 android:hint="₹ 0.00"
 
 
-                android:padding="12dp"
+                android:padding="17dp"
                 android:fontFamily="@font/inter_light"
                 android:textSize="16sp"
                 android:background="@drawable/edit_text_bg" />
@@ -173,7 +173,7 @@
             android:hint="0"
             android:padding="12dp"
             android:fontFamily="@font/inter_light"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:background="@drawable/edit_text_bg" />
             <TextView
                 android:layout_width="match_parent"
@@ -290,7 +290,7 @@
             android:id="@+id/getStartedBtn"
             android:layout_width="358dp"
             android:layout_height="48dp"
-            android:layout_marginHorizontal="24dp"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/filledbtn_blue"
             android:text="Add Product"

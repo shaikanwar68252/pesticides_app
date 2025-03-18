@@ -56,7 +56,7 @@
 
         <!-- Product Image -->
         <ImageView
-            android:id="@+id/product1"
+            android:id="@+id/productImage"
             android:layout_width="390dp"
             android:layout_height="300dp"
             android:src="@drawable/home_placeholder"
@@ -72,6 +72,7 @@
             android:paddingHorizontal="16dp">
 
             <TextView
+                android:id="@+id/productName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="EcoShield Pro Pesticide"
@@ -91,7 +92,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/productOffPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -102,10 +103,9 @@
                     android:textColor="#15803D"/>
 
                 <TextView
-                    android:id="@+id/textView43"
+                    android:id="@+id/productPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="$119.99"
                     android:textSize="18sp"
                     android:fontFamily="@font/inter"
@@ -113,7 +113,7 @@
                     android:textColor="#9CA3AF"/>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/shopNowBtn"
+                    android:id="@+id/offer"
                     android:layout_width="75.39dp"
                     android:layout_height="28dp"
                     android:textAllCaps="false"
@@ -168,6 +168,7 @@
                    android:padding="4dp"/>
            </LinearLayout>
            <TextView
+               android:id="@+id/stockStatus"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:text="In Stock"
@@ -193,11 +194,11 @@
                android:textSize="18sp"
                android:fontFamily="@font/inter_semibold"/>
            <TextView
+               android:id="@+id/description"
                android:layout_width="356sp"
                android:layout_height="128sp"
                android:text="EcoShield Pro is an advanced, eco-friendly pesticide designed for effective pest control while maintaining environmental safety. This professional-grade solution offers long-lasting protection for various crops."
                android:textSize="16sp"
-
                android:fontFamily="@font/inter_medium"
                />
 

@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/main_docsverify"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/arrrowdocument"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/back_arrow" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Document Verification"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageViewedit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/question_icon" />
+        </LinearLayout>
+
+        <!-- Card View for Business Details -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="358dp"
+            android:layout_height="82dp"
+
+            app:cardCornerRadius="12dp"
+            android:layout_marginHorizontal="19dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/home_placeholder"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#F9FAFB" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="8dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="23sp"
+                            android:text="John Anderson"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:paddingEnd="19dp" />
+
+                        <TextView
+                            android:id="@+id/verified_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6sp"
+                            android:paddingHorizontal="8sp"
+                            android:paddingVertical="2dp"
+                            android:background="@drawable/rental_catergory_bg"
+                            android:drawableStart="@drawable/tick_verify_icon"
+                            android:drawablePadding="5dp"
+                            android:text="Verified Owner"
+                            android:textSize="12sp"
+                            android:textColor="#16A34A" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingTop="4dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/location_ic"
+                          />
+
+                        <TextView
+                            android:id="@+id/location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Sacramento, CA"
+                            android:fontFamily="@font/inter_light"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingTop="4dp">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Verification Documents -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verification Documents"
+                android:fontFamily="@font/inter_semibold"
+                android:textSize="16sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="358dp"
+                android:layout_height="220dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/identityproof_ic" />
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Identity Proof"
+                     android:fontFamily="@font/inter_medium"
+                            android:textSize="16sp"
+                            android:layout_marginStart="8dp" />
+
+                        <TextView
+                            android:id="@+id/verified_idproof"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp"
+                            android:background="@drawable/rental_catergory_bg"
+                            android:drawableStart="@drawable/tick_verify_icon"
+                            android:drawablePadding="5dp"
+                            android:text="Verified"
+                            android:textSize="12sp"
+                            android:textColor="#16A34A" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="324dp"
+                        android:layout_height="100dp"
+                       android:layout_marginTop="12sp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:background="@drawable/curve_img"
+                        android:src="@drawable/placeholder" />
+
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/uploadDocumentsBtn1"
+                        android:layout_width="324dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/btn_bg_blue"
+                        android:text="View Full Document"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/inter_medium"
+
+                        android:textAllCaps="false"
+                        android:textColor="#2563EB" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="358dp"
+                android:layout_height="220dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/land_papers_ic" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Land Papers"
+                           android:fontFamily="@font/inter_medium"
+                            android:textSize="16sp"
+                            android:layout_marginStart="8dp" />
+
+                        <TextView
+                            android:id="@+id/verified_idproof2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp"
+                            android:background="@drawable/rental_catergory_bg"
+                            android:drawableStart="@drawable/tick_verify_icon"
+                            android:drawablePadding="5dp"
+                            android:text="Verified"
+                            android:textSize="12sp"
+                            android:textColor="#16A34A" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="324dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="12sp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:background="@drawable/curve_img"
+                        android:src="@drawable/placeholder" />
+
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/uploadDocumentsBtn2"
+                        android:layout_width="324dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/btn_bg_blue"
+                        android:text="View Full Document"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/inter_medium"
+                        android:textAllCaps="false"
+                        android:textColor="#2563EB" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="358dp"
+                android:layout_height="220dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/aggrement_ic" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Rental Agreement"
+                          android:fontFamily="@font/inter_medium"
+                            android:textSize="16sp"
+                            android:layout_marginStart="8dp" />
+
+                        <TextView
+                            android:id="@+id/verified_idproof3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp"
+                            android:background="@drawable/rental_catergory_bg"
+                            android:drawableStart="@drawable/tick_verify_icon"
+                            android:drawablePadding="5dp"
+                            android:text="Verified"
+                            android:textSize="12sp"
+                            android:textColor="#16A34A" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="324dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="12sp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:background="@drawable/curve_img"
+                        android:src="@drawable/placeholder" />
+
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/uploadDocumentsBtn"
+                        android:layout_width="324dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/btn_bg_blue"
+                        android:text="View Full Document"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/inter_medium"
+                        android:textAllCaps="false"
+                        android:textColor="#2563EB" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="358dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#CFE1F7"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Icon -->
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/doc_verify_ic"
+                         />
+
+                    <!-- Text Section -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="All Documents Verified"
+                            android:textSize="16sp"
+               android:fontFamily="@font/inter_semibold"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last verified on Jan 15, 2024"
+                            android:textSize="14sp"
+                        android:fontFamily="@font/inter_light" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/proceedto_rent"
+                android:layout_width="358dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/filled_btn_blue"
+                android:text="Proceed to Rent"
+                android:textSize="16sp"
+                android:fontFamily="@font/inter_semibold"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

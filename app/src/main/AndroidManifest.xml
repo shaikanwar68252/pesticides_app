@@ -4,9 +4,13 @@
     package="com.example.pesticidessellingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+
 
     <application
         android:allowBackup="true"
+
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:hardwareAccelerated="true"
@@ -17,6 +21,9 @@
         android:theme="@style/Theme.PesticidesSellingApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".userScreens.ActivityDocumentVerify"
+            android:exported="false" />
         <activity
             android:name=".adminScreens.AdminDashboard"
             android:exported="true" />
@@ -90,7 +97,6 @@
         <activity
             android:name=".userScreens.Search_Recyclerview"
             android:exported="true" />
-
         <activity
             android:name=".userScreens.UserDashboardActivity"
             android:exported="true"
@@ -104,8 +110,6 @@
         <activity
             android:name=".userScreens.Payment_Continuning"
             android:exported="true" />
-
-
         <activity
             android:name=".Unused.Rent_Tractor"
             android:exported="false" />

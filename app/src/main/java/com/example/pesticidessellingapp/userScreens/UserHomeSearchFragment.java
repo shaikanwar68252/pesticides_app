@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.pesticidessellingapp.Module.Product;
 import com.example.pesticidessellingapp.Module.ProductResponse;
 import com.example.pesticidessellingapp.R;
 import com.example.pesticidessellingapp.databinding.FragmentUserHomeSearchBinding;
@@ -26,7 +27,7 @@ public class UserHomeSearchFragment extends Fragment {
     FragmentUserHomeSearchBinding binding;
     private RecyclerView recyclerView;
     private UserHomeAdapter adapter;
-    private List<ProductResponse.Product> productList;
+    private List<Product> productList;
 
     @Nullable
     @Override
@@ -108,8 +109,8 @@ public class UserHomeSearchFragment extends Fragment {
     }
 
     private void filter(String query) {
-        List<ProductResponse.Product> filteredList = new ArrayList<>();
-        for (ProductResponse.Product item : productList) {
+        List<Product> filteredList = new ArrayList<>();
+        for (Product item : productList) {
             if (item.getProductName().toLowerCase().contains(query.toLowerCase())) {
                 filteredList.add(item);
             }

@@ -16,6 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pesticidessellingapp.Module.Product;
 import com.example.pesticidessellingapp.Module.ProductResponse;
 import com.example.pesticidessellingapp.R;
 
@@ -23,9 +24,9 @@ import java.util.List;
 
 public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHolder> {
     private Context context;
-    private List<ProductResponse.Product> productList;
+    private List<Product> productList;
 
-    public UserHomeAdapter(Context context, List<ProductResponse.Product> productList) {
+    public UserHomeAdapter(Context context, List<Product> productList) {
         this.context = context;
         this.productList = productList;
     }
@@ -39,7 +40,7 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ProductResponse.Product product = productList.get(position);
+        Product product = productList.get(position);
         holder.productName.setText(product.getProductName());
         holder.productPrice.setText("₹ " + product.getPrice());
 
@@ -52,11 +53,7 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
         // ✅ Make the entire CardView clickable
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, Activity_Product_Details.class);
-            intent.putExtra("name", product.getProductName());
-            intent.putExtra("price", String.valueOf(product.getPrice())); // Convert price to string
-            intent.putExtra("imageUrl", product.getImageUrl());
-
-            intent.pu
+            intent.putExtra("product",product);
             context.startActivity(intent);
         });
 

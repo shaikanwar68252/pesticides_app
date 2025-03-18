@@ -1,3 +1,5 @@
+import com.android.tools.r8.internal.de
+
 plugins {
     id("com.android.application")
 }
@@ -51,6 +53,8 @@ dependencies {
     implementation(libs.firebase.appdistribution.gradle)
     testImplementation(libs.junit)
     implementation(libs.picasso)
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
     implementation(libs.checkout)
 
     implementation (libs.retrofit)

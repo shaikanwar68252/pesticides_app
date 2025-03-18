@@ -1,0 +1,8 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style android:name="RoundedImageShape">
+        <item android:name="cornerFamily">rounded</item>
+        <item android:name="cornerSize">8dp</item> <!-- Adjust for desired curve -->
+    </style>
+
+</resources>
