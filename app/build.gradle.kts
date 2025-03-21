@@ -2,6 +2,7 @@ import com.android.tools.r8.internal.de
 
 plugins {
     id("com.android.application")
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -51,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.firebase.appdistribution.gradle)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     implementation(libs.picasso)
     implementation("de.hdodenhof:circleimageview:3.1.0")
