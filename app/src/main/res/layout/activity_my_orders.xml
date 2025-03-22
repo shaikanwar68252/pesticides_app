@@ -22,13 +22,17 @@
             android:layout_marginTop="25dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/arrow"
-                android:layout_width="22dp"
-                android:layout_height="26dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="12dp"
-                app:srcCompat="@drawable/back_arrow" />
+            <ImageButton
+                android:id="@+id/backArrow_myorders"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@color/transparent"
+                android:src="@drawable/back_arrow_new"
+                android:contentDescription="Back"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingEnd="8dp" />
+
 
             <TextView
                 android:id="@+id/textView22"
@@ -38,6 +42,7 @@
                 android:fontFamily="@font/inter_bold"
                 android:text="My Orders"
                 android:textAlignment="center"
+                android:layout_gravity="center"
                 android:textSize="20sp" />
 
             <ImageView

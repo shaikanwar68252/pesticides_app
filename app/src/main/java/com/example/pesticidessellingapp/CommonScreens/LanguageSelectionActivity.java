@@ -1,6 +1,9 @@
 package com.example.pesticidessellingapp.CommonScreens;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -9,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.pesticidessellingapp.R;
 import com.example.pesticidessellingapp.userScreens.UserProfileFragment; // Import your Profile Page Activity
@@ -18,7 +23,7 @@ import java.util.Locale;
 public class LanguageSelectionActivity extends AppCompatActivity {
 
     private CheckBox chkEnglish, chkHindi, chkTamil;
-    private Button backArrowLanguage;
+    private ImageButton backArrowLanguage;
     private SharedPreferences preferences;
 
     @SuppressLint("WrongViewCast")
@@ -56,9 +61,7 @@ public class LanguageSelectionActivity extends AppCompatActivity {
         backArrowLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LanguageSelectionActivity.this, UserProfileFragment.class); // Update with actual Profile Page class
-                startActivity(intent);
-                finish(); // Close current activity
+                finish();
             }
         });
     }

@@ -23,12 +23,16 @@
             android:orientation="horizontal"
             android:padding="12dp">
 
-            <ImageView
-                android:id="@+id/arrrowdocument"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/back_arrow" />
+            <ImageButton
+                android:id="@+id/backArrow_rentals"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@color/transparent"
+                android:src="@drawable/back_arrow_new"
+                android:contentDescription="Back"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingEnd="8dp" />
 
             <TextView
                 android:id="@+id/textView22"
@@ -37,7 +41,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/inter_semibold"
                 android:text="Document Verification"
-                android:textAlignment="center"
+              android:layout_gravity="center"
                 android:textSize="18sp" />
 
             <ImageView
@@ -390,7 +394,7 @@
                 app:cardCornerRadius="12dp"
                 app:cardElevation="2dp"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="#CFE1F7"
+                app:cardBackgroundColor="#F5F5F5"
                 >
 
                 <LinearLayout

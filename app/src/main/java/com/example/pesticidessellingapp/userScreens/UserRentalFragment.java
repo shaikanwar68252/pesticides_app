@@ -35,6 +35,18 @@ public class UserRentalFragment extends Fragment {
         recyclerViewCart = view.findViewById(R.id.recyclerView_cart);
         btnProceedRental = view.findViewById(R.id.btn_proceed_rental);
 
+        btnProceedRental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddRentalFragment.class);
+                Toast.makeText(requireContext(), "Proceeding with Rental", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
+
+
+
+
         // Sample rental data
         rentalList = new ArrayList<>();
         rentalList.add(new UserRentalModel("Tractor X1", "https://example.com/tractor1.jpg", "1000/day"));
@@ -61,13 +73,7 @@ public class UserRentalFragment extends Fragment {
         recyclerViewCart.setAdapter(adapter);
 
         // Proceed Rental button
-        btnProceedRental.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.container, new AddRentalFragment())
-                    .addToBackStack(null)
-                    .commit();
-            Toast.makeText(requireContext(), "Proceeding with Rental", Toast.LENGTH_SHORT).show();
-        });
+
 
         return view;
     }

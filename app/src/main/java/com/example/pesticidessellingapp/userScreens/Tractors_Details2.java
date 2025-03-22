@@ -1,5 +1,6 @@
 package com.example.pesticidessellingapp.userScreens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pesticidessellingapp.R;
 import com.google.android.gms.maps.MapView;
@@ -46,7 +49,7 @@ public class Tractors_Details2 extends AppCompatActivity {
 
     private void initializeViews() {
         mainScrollView = findViewById(R.id.main876862);
-        imageViewBack = findViewById(R.id.imageViewback_rent);
+        imageViewBack = findViewById(R.id.backArrow_page1);
         imageViewShare = findViewById(R.id.imageViewshare);
         product1 = findViewById(R.id.product1);
         textView22 = findViewById(R.id.textView22);
@@ -93,24 +96,38 @@ public class Tractors_Details2 extends AppCompatActivity {
         });
 
         verifyDocs.setOnClickListener(v -> {
-            // Handle verify documents button click
+            Intent intent = new Intent(Tractors_Details2.this, ActivityDocumentVerify.class);
+            startActivity(intent);
         });
 
         btnProceedRental.setOnClickListener(v -> {
-            // Handle rent now button click
+            Intent intent = new Intent(Tractors_Details2.this, ProceedRent.class);
+            startActivity(intent);
         });
 
         technicalLayout.setOnClickListener(v -> {
-            //Handle technical details layout click
+            // Handle technical details layout click
         });
 
         featuresLayout.setOnClickListener(v -> {
-            //Handle features layout click
+            // Handle features layout click
         });
 
         rentalLayout.setOnClickListener(v -> {
-            //Handle rental layout click
+            // Handle rental layout click
         });
+
+        // Navigate to a fragment when clicking on product1
+        product1.setOnClickListener(v -> {
+            loadFragment(new UserProfileFragment()); // Replace with your actual fragment
+        });
+    }
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main, fragment); // Ensure you have a container in your XML
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override

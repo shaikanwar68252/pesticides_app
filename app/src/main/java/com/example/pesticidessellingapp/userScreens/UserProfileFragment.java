@@ -41,6 +41,7 @@ public class UserProfileFragment extends Fragment {
         binding.imageViewedit.setOnClickListener(view -> {
             startActivity(new Intent(getActivity(), Edit_Profile.class));
         });
+
         binding.settingsCV.setOnClickListener(view -> {
             startActivity(new Intent(getActivity(), LanguageSelectionActivity.class));
         });
