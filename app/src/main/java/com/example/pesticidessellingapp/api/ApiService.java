@@ -16,18 +16,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface ApiService {
-    @POST("signup.php")
+    @POST("signup_users.php")
     Call<SignupResponse> signupUser(@Body UserSignupRequest userSignupRequest);
 
-    @POST("User_Login.php")
+    @POST("users_login.php")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
-
-    @Multipart
-    @POST("login.php")
-    Call<LoginResponse> loginUser(
-            @Part("email_or_phone") RequestBody emailOrPhone,
-            @Part("password") RequestBody password
-    );
 
     @Multipart
     @POST("product_Admin.php")
@@ -59,7 +52,7 @@ public interface ApiService {
             @Part MultipartBody.Part image
     );
 
-    @GET("productdetails.php")
+    @GET("fetchAllProducts.php")
     Call<ProductResponse> getProducts();
 
 }

@@ -64,24 +64,22 @@ public class SignUpActivity extends AppCompatActivity {
                 } else if (!cbTerms.isChecked()) {
                     Toast.makeText(SignUpActivity.this, "Please accept the terms and conditions!", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(name, email, phoneNumber, password, confirmPassword);
+                    registerUser(name, email, phoneNumber, password);
                 }
             }
         });
     }
 
-    private void registerUser(String name, String email, String phoneNumber, String password, String confirmPassword) {
-        UserSignupRequest user = new UserSignupRequest(name, email, phoneNumber, password, confirmPassword);
+    private void registerUser(String name, String email, String phoneNumber, String password) {
+        UserSignupRequest user = new UserSignupRequest(name, email, phoneNumber, password);
         Call<SignupResponse> call = apiService.signupUser(user);
 
         call.enqueue(new Callback<SignupResponse>() {
             @Override
             public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    if ("success".equals(response.body().getStatus())) {
+                    if (response.body().isStatus()) {
                         Toast.makeText(SignUpActivity.this, "SignUp Successful!", Toast.LENGTH_SHORT).show();
-
-                        // Navigate to the next activity
                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();

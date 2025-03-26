@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pesticidessellingapp.ApiRequest.LoginRequest;
 import com.example.pesticidessellingapp.ApiResponse.LoginResponse;
 import com.example.pesticidessellingapp.IpV4Connection;
 import com.example.pesticidessellingapp.adminScreens.AdminDashboard;
@@ -52,10 +53,9 @@ public class LoginActivity extends AppCompatActivity {
     private void letUserLogin(String emailOrPhone, String password) {
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
 
-        RequestBody emailRequestBody = RequestBody.create(okhttp3.MultipartBody.FORM, emailOrPhone);
-        RequestBody passwordRequestBody = RequestBody.create(okhttp3.MultipartBody.FORM, password);
 
-        Call<LoginResponse> call = apiService.loginUser(emailRequestBody, passwordRequestBody);
+
+        Call<LoginResponse> call = apiService.loginUser(new LoginRequest(emailOrPhone, password));
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override

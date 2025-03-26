@@ -95,7 +95,7 @@ public class UserHomeFragment extends Fragment {
             @Override
             public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
                 if(response.isSuccessful()){
-                    if (response.body().getStatus().equals("success")){
+                    if (response.body().getStatus().equals("Success")){
                         productList.addAll(response.body().getProducts());
                         adapter.notifyDataSetChanged();
                     }

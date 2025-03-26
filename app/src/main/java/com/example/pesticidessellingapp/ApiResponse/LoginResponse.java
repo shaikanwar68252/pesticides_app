@@ -33,7 +33,7 @@ public class LoginResponse {
         }
 
         public String getPhone() {
-            return phone;
+            return                                                                               phone;
         }
 
         public String getUserType() {

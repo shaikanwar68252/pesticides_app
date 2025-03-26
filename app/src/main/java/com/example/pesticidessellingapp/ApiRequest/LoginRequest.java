@@ -3,7 +3,7 @@ package com.example.pesticidessellingapp.ApiRequest;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginRequest {
-    @SerializedName("email_or_phone") // MUST match PHP field name
+    @SerializedName("email_or_mobile") // MUST match PHP field name
     private String emailOrPhone;
 
     @SerializedName("password") // MUST match PHP field name
