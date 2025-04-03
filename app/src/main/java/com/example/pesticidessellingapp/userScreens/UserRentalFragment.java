@@ -38,7 +38,7 @@ public class UserRentalFragment extends Fragment {
         btnProceedRental.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AddRentalFragment.class);
+                Intent intent = new Intent(getActivity(), AddRentalActivity.class);
                 Toast.makeText(requireContext(), "Proceeding with Rental", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }

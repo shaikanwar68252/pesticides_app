@@ -3,8 +3,11 @@ package com.example.pesticidessellingapp.api;
 import com.example.pesticidessellingapp.ApiRequest.LoginRequest;
 import com.example.pesticidessellingapp.ApiRequest.UserSignupRequest;
 import com.example.pesticidessellingapp.ApiResponse.LoginResponse;
+import com.example.pesticidessellingapp.ApiResponse.PostPropertyResponse;
 import com.example.pesticidessellingapp.ApiResponse.SignupResponse;
 import com.example.pesticidessellingapp.Module.ProductResponse;
+
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -50,6 +53,19 @@ public interface ApiService {
             @Part("safety_precautions") RequestBody safetyPrecautions,
             @Part("technical_details") RequestBody technicalDetails,
             @Part MultipartBody.Part image
+    );
+
+    @Multipart
+    @POST("add_property.php") // Change to your actual PHP endpoint
+    Call<PostPropertyResponse> postProperty(
+            @Part("user_id") RequestBody userId,
+            @Part("type") RequestBody type,
+            @Part("title") RequestBody title,
+            @Part("location") RequestBody location,
+            @Part("area") RequestBody area,
+            @Part("rate") RequestBody rate,
+            @Part("description") RequestBody description,
+            @Part List<MultipartBody.Part> photos
     );
 
     @GET("fetchAllProducts.php")
