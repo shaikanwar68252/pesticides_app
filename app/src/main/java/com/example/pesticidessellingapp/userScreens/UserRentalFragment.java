@@ -14,10 +14,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pesticidessellingapp.Module.GetPropertyResponse;
 import com.example.pesticidessellingapp.R;
+import com.example.pesticidessellingapp.api.ApiClient;
+import com.example.pesticidessellingapp.api.ApiService;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserRentalFragment extends Fragment {
 
@@ -58,20 +65,36 @@ public class UserRentalFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         recyclerViewCart.setLayoutManager(layoutManager);
 
-        adapter = new UserRentalAdapter(requireContext(), rentalList, (position, rentalItem) -> {
-            Intent intent = new Intent(requireContext(), Tractors_Details2.class);
+        ApiClient.getClient().create(ApiService.class).getproperties().enqueue(new Callback<GetPropertyResponse>() {
+            @Override
+            public void onResponse(Call<GetPropertyResponse> call, Response<GetPropertyResponse> response) {
+                if(response.isSuccessful()) {
+                    adapter = new UserRentalAdapter(requireContext(), response.body().getProperties(), (position, rentalItem) -> {
+                        Intent intent = new Intent(requireContext(), Tractors_Details2.class);
 
-            // Pass data to the details activity
-            intent.putExtra("item_name", rentalItem.getProductName());
-            intent.putExtra("image_url", rentalItem.getProductImage());
-            intent.putExtra("price", rentalItem.getProductPrice());
+                        // Pass data to the details activity
+//                        intent.putExtra("item_name", rentalItem.getTitle());
+//                        intent.putExtra("image_url", rentalItem.getImage_path());
+//                        intent.putExtra("price", rentalItem.getRate_per_day());
+                        intent.putExtra("item",rentalItem);
 
-            startActivity(intent);
+                        startActivity(intent);
+                    });
+
+
+                    recyclerViewCart.setAdapter(adapter);
+
+                }else {
+                    Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetPropertyResponse> call, Throwable t) {
+                Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
-
-
-        recyclerViewCart.setAdapter(adapter);
-
         // Proceed Rental button
 
 

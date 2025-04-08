@@ -64,6 +64,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center" />
         <TextView
+            android:id="@+id/pro1_rent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PowerMax 3000 Premium Tractor"
@@ -75,6 +76,7 @@
 
         </TextView>
         <TextView
+            android:id="@+id/model_rent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Model: PM-3000 • 2023"
@@ -89,7 +91,7 @@
             android:layout_marginLeft="16sp">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/price_rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -224,7 +226,6 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/capacityText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -235,6 +236,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/capacityText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="31dp"
@@ -337,6 +339,7 @@
                                         android:textSize="16sp"/>
 
                                     <TextView
+                                        android:id="@+id/technical_rental"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Advanced hydraulic system"
@@ -428,6 +431,7 @@
                             android:textSize="16sp"/>
 
                         <TextView
+                            android:id="@+id/features_rental"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Multi-purpose attachments"
@@ -519,6 +523,7 @@
                             android:textSize="16sp"/>
 
                         <TextView
+                            android:id="@+id/rental_main"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Insurance included"

@@ -1,7 +1,9 @@
 [versions]
 agp = "8.4.0"
 checkout = "1.6.26"
+circleimageview = "3.1.0"
 converterGson = "2.9.0"
+core = "1.15.0"
 glide = "4.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -24,7 +26,9 @@ googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
 playServicesMaps = "18.1.0"
 
 [libraries]
+androidx-core = { module = "androidx.core:core", version.ref = "core" }
 checkout = { module = "com.razorpay:checkout", version.ref = "checkout" }
+circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }

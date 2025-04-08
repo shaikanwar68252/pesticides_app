@@ -23,7 +23,7 @@ public class Product implements Parcelable {
     @SerializedName("stock_status")
     private String stockStatus;
 
-    @SerializedName("quantityAvailable")
+    @SerializedName("quantity_available")
     private String quantityAvailable;
 
     @SerializedName("unit")

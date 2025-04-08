@@ -1,12 +1,15 @@
 package com.example.pesticidessellingapp.userScreens;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -15,8 +18,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.pesticidessellingapp.ApiResponse.PostPropertyResponse;
 import com.example.pesticidessellingapp.R;
@@ -24,6 +30,7 @@ import com.example.pesticidessellingapp.api.ApiClient;
 import com.example.pesticidessellingapp.api.ApiService;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +52,15 @@ public class AddRentalActivity extends AppCompatActivity {
     private List<Uri> selectedImages = new ArrayList<>();
     private ProgressDialog progressDialog;
 
+    private final ActivityResultLauncher<String> permissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    selectImages();
+                } else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +79,31 @@ public class AddRentalActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Posting property...");
 
-        uploadPhotosLayout.setOnClickListener(v -> selectImages());
+        uploadPhotosLayout.setOnClickListener(v -> checkPermissionAndSelectImages());
 
         btnListProperty.setOnClickListener(v -> postProperty());
     }
+
+    private void checkPermissionAndSelectImages() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Android 13+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
+                    != PackageManager.PERMISSION_GRANTED) {
+                permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES);
+            } else {
+                selectImages();
+            }
+        } else {
+            // Android 12 and below
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
+            } else {
+                selectImages();
+            }
+        }
+    }
+
 
     private void selectImages() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -117,7 +154,7 @@ public class AddRentalActivity extends AppCompatActivity {
 
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
 
-        RequestBody userId = RequestBody.create(MediaType.parse("text/plain"), "1");
+        RequestBody userId = RequestBody.create(MediaType.parse("text/plain"), getSharedPreferences("APP_SF",MODE_PRIVATE).getString("ID",""));
         RequestBody type = RequestBody.create(MediaType.parse("text/plain"), category);
         RequestBody propTitle = RequestBody.create(MediaType.parse("text/plain"), title);
         RequestBody propLocation = RequestBody.create(MediaType.parse("text/plain"), location);
@@ -142,13 +179,31 @@ public class AddRentalActivity extends AppCompatActivity {
         call.enqueue(new Callback<PostPropertyResponse>() {
             @Override
             public void onResponse(Call<PostPropertyResponse> call, Response<PostPropertyResponse> response) {
-                progressDialog.dismiss();
-                if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(AddRentalActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    // Log the raw response body to check what is being returned
+                    try {
+                        String rawResponse = response.errorBody() != null ? response.errorBody().string() : "";
+                        Log.d("RawResponse", rawResponse);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    PostPropertyResponse propertyResponse = response.body();
+                    if (propertyResponse != null) {
+                        // Handle success
+                        progressDialog.dismiss();
+                        Toast.makeText(AddRentalActivity.this, propertyResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Handle empty response body
+                        progressDialog.dismiss();
+                        Toast.makeText(AddRentalActivity.this, "Empty response", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
+                    progressDialog.dismiss();
                     Toast.makeText(AddRentalActivity.this, "Failed to post property", Toast.LENGTH_SHORT).show();
                 }
             }
+
 
             @Override
             public void onFailure(Call<PostPropertyResponse> call, Throwable t) {

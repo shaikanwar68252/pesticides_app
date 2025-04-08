@@ -1,6 +1,7 @@
 package com.example.pesticidessellingapp.Auth;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -65,6 +66,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (loginResponse.isStatus()) {
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+                        SharedPreferences sf = getSharedPreferences("APP_SF",MODE_PRIVATE);
+                        sf.edit().putString("ID",response.body().getData().getUserId()+"").commit();
 
                         if (loginResponse.getData().getUserType().equalsIgnoreCase("Admin")) {
                             startActivity(new Intent(LoginActivity.this, AdminDashboard.class));

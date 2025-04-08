@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.pesticidessellingapp"
-    compileSdk = 34
+    compileSdk = 35
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     packagingOptions{
@@ -54,20 +54,13 @@ dependencies {
     implementation(libs.firebase.appdistribution.gradle)
     implementation(libs.play.services.maps)
     testImplementation(libs.junit)
+    implementation(libs.androidx.core)
     implementation(libs.picasso)
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-
+    implementation(libs.circleimageview)
     implementation(libs.checkout)
-
     implementation (libs.retrofit)
-
-    // Gson Converter (for JSON serialization/deserialization)
     implementation (libs.converter.gson)
-
-    // OkHttp (for logging network requests)
     implementation (libs.logging.interceptor)
-
-
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation (libs.glide)

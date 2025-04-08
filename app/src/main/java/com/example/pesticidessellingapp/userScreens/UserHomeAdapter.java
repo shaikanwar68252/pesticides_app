@@ -4,6 +4,7 @@ import static com.example.pesticidessellingapp.api.ApiClient.BASE_URL;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,8 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage;
         TextView productName, productPrice;
+
+        String ProductName;
         Button addButton;
         CardView cardView; // ✅ Added CardView reference
 
@@ -80,6 +83,7 @@ public class UserHomeAdapter extends RecyclerView.Adapter<UserHomeAdapter.ViewHo
             productPrice = itemView.findViewById(R.id.product_price_userhome);
             addButton = itemView.findViewById(R.id.add_button);
             cardView = itemView.findViewById(R.id.item55); // ✅ Ensure this ID matches CardView in XML
+            ProductName = productName.getText().toString().trim();
         }
     }
 }

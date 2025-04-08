@@ -5,6 +5,7 @@ import com.example.pesticidessellingapp.ApiRequest.UserSignupRequest;
 import com.example.pesticidessellingapp.ApiResponse.LoginResponse;
 import com.example.pesticidessellingapp.ApiResponse.PostPropertyResponse;
 import com.example.pesticidessellingapp.ApiResponse.SignupResponse;
+import com.example.pesticidessellingapp.Module.GetPropertyResponse;
 import com.example.pesticidessellingapp.Module.ProductResponse;
 
 import java.util.List;
@@ -70,5 +71,8 @@ public interface ApiService {
 
     @GET("fetchAllProducts.php")
     Call<ProductResponse> getProducts();
+
+    @GET("fetch_properties.php")
+    Call<GetPropertyResponse> getproperties();
 
 }

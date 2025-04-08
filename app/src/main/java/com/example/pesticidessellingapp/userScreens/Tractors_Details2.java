@@ -2,130 +2,104 @@ package com.example.pesticidessellingapp.userScreens;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+import com.example.pesticidessellingapp.Module.Properties;
 import com.example.pesticidessellingapp.R;
+import com.example.pesticidessellingapp.databinding.ActivityTractorsDetails2Binding;
 import com.google.android.gms.maps.MapView;
 
 public class Tractors_Details2 extends AppCompatActivity {
 
-    private ImageView imageViewBack, imageViewShare, product1;
-    private TextView textView22, textView3, textView43;
-    private AppCompatButton shopNowBtn, verifyDocs, btnProceedRental;
-    private CardView cardView1, cardView2, cardView3, cardView4;
-    private TextView enginePowerText, fuelTypeText, capacityText, yearText;
-    private TextView technicalDetailsText, featuresText, rentalTermsText, locationText, locationDistanceText, checkCalendarText;
-    private LinearLayout technicalLayout, featuresLayout, rentalLayout;
-    private MapView mapViewRent;
-    private ScrollView mainScrollView;
+    private ActivityTractorsDetails2Binding binding;
     private Bundle mapViewBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tractors_details2);
 
-        initializeViews();
+        binding = ActivityTractorsDetails2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         setupListeners();
+        loadPropertyData();
 
         mapViewBundle = null;
         if (savedInstanceState != null) {
             mapViewBundle = savedInstanceState.getBundle("mapViewBundleKey");
         }
 
-        mapViewRent.onCreate(mapViewBundle);
+        binding.mapViewRent.onCreate(mapViewBundle);
     }
 
-    private void initializeViews() {
-        mainScrollView = findViewById(R.id.main876862);
-        imageViewBack = findViewById(R.id.backArrow_page1);
-        imageViewShare = findViewById(R.id.imageViewshare);
-        product1 = findViewById(R.id.product1);
-        textView22 = findViewById(R.id.textView22);
-        textView3 = findViewById(R.id.textView3);
-        textView43 = findViewById(R.id.textView43);
-        shopNowBtn = findViewById(R.id.shopNowBtn);
-        verifyDocs = findViewById(R.id.verify_docs);
-        btnProceedRental = findViewById(R.id.btn_proceed_rental);
+    private void loadPropertyData() {
+        Properties properties = getIntent().getParcelableExtra("item");
+        if (properties != null) {
+            binding.capacityText.setText(properties.getCapacity());
+            binding.pro1Rent.setText(properties.getTitle());
+            binding.modelRent.setText(properties.getModel());
+            binding.enginePowerText.setText(properties.getEngine_power());
+            binding.fuelTypeText.setText(properties.getFuel_type());
+            binding.yearText.setText(properties.getYear());
+            binding.technicalRental.setText(properties.getTechnical_details());
+            binding.rentalMain.setText(properties.getRental_terms());
+            binding.featuresRental.setText(properties.getFeatures());
+            binding.priceRent.setText(properties.getRate_per_day());
 
-        cardView1 = findViewById(R.id.engine);
-        cardView2 = findViewById(R.id.fuel);
-        cardView3 = findViewById(R.id.capacity);
-        cardView4 = findViewById(R.id.year);
-
-        enginePowerText = findViewById(R.id.enginePowerText);
-        fuelTypeText = findViewById(R.id.fuelTypeText);
-        capacityText = findViewById(R.id.capacityText);
-        yearText = findViewById(R.id.yearText);
-
-        technicalLayout = findViewById(R.id.technical);
-        featuresLayout = findViewById(R.id.features);
-        rentalLayout = findViewById(R.id.rental);
-
-        technicalDetailsText = findViewById(R.id.technicalDetailsText);
-        featuresText = findViewById(R.id.featuresText);
-        rentalTermsText = findViewById(R.id.rentalTermsText);
-
-        locationText = findViewById(R.id.locationText);
-        locationDistanceText = findViewById(R.id.locationDistanceText);
-        checkCalendarText = findViewById(R.id.checkCalendarText);
-
-        mapViewRent = findViewById(R.id.mapView_rent);
+            // ✅ Load image with Glide
+            Glide.with(this)
+                    .load(properties.getImage_path())
+                    .placeholder(R.drawable.placeholder)
+                    .into(binding.product1);
+        }
     }
 
     private void setupListeners() {
-        imageViewBack.setOnClickListener(v -> onBackPressed());
+        binding.backArrowPage1.setOnClickListener(v -> onBackPressed());
 
-        imageViewShare.setOnClickListener(v -> {
+        binding.imageViewshare.setOnClickListener(v -> {
             // Handle share button click
         });
 
-        shopNowBtn.setOnClickListener(v -> {
+        binding.shopNowBtn.setOnClickListener(v -> {
             // Handle shop now button click
         });
 
-        verifyDocs.setOnClickListener(v -> {
+        binding.verifyDocs.setOnClickListener(v -> {
             Intent intent = new Intent(Tractors_Details2.this, ActivityDocumentVerify.class);
             startActivity(intent);
         });
 
-        btnProceedRental.setOnClickListener(v -> {
+        binding.btnProceedRental.setOnClickListener(v -> {
             Intent intent = new Intent(Tractors_Details2.this, ProceedRent.class);
             startActivity(intent);
         });
 
-        technicalLayout.setOnClickListener(v -> {
-            // Handle technical details layout click
+        binding.technical.setOnClickListener(v -> {
+            // Handle technical layout click
         });
 
-        featuresLayout.setOnClickListener(v -> {
+        binding.features.setOnClickListener(v -> {
             // Handle features layout click
         });
 
-        rentalLayout.setOnClickListener(v -> {
+        binding.rental.setOnClickListener(v -> {
             // Handle rental layout click
         });
 
-        // Navigate to a fragment when clicking on product1
-        product1.setOnClickListener(v -> {
-            loadFragment(new UserProfileFragment()); // Replace with your actual fragment
+        binding.product1.setOnClickListener(v -> {
+            loadFragment(new UserProfileFragment());
         });
     }
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.main, fragment); // Ensure you have a container in your XML
+        transaction.replace(R.id.main, fragment); // make sure you have a container with id `main`
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -133,25 +107,25 @@ public class Tractors_Details2 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mapViewRent.onResume();
+        binding.mapViewRent.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mapViewRent.onPause();
+        binding.mapViewRent.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mapViewRent.onDestroy();
+        binding.mapViewRent.onDestroy();
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        mapViewRent.onLowMemory();
+        binding.mapViewRent.onLowMemory();
     }
 
     @Override
@@ -159,7 +133,7 @@ public class Tractors_Details2 extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
         Bundle mapViewSavedState = new Bundle();
-        mapViewRent.onSaveInstanceState(mapViewSavedState);
+        binding.mapViewRent.onSaveInstanceState(mapViewSavedState);
         outState.putBundle("mapViewBundleKey", mapViewSavedState);
     }
 }

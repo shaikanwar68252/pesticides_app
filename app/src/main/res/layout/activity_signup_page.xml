@@ -49,8 +49,7 @@
         android:drawableStart="@drawable/user_ic"
         android:drawablePadding="10dp"
         android:hint="Full Name"
-        android:inputType="text"
-        android:padding="15dp" />
+        android:inputType="text"/>
 
     <!-- Email Address -->
     <EditText
@@ -62,6 +61,7 @@
         android:background="@drawable/edit_text_bg"
         android:drawableStart="@drawable/email_ic"
         android:drawablePadding="10dp"
+        android:inputType="textEmailAddress"
         android:hint="Email Address"
         android:padding="15dp" />
 
@@ -76,6 +76,7 @@
         android:drawableStart="@drawable/phone_ic"
         android:drawablePadding="10dp"
         android:hint="Phone Number"
+        android:inputType="number"
         android:padding="15dp" />
 
     <!-- Password -->
